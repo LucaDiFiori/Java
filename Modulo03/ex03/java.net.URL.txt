@@ -1,0 +1,76 @@
+________________________________________________________________________________
+________________________________JAVA.NET.URL____________________________________
+
+La classe java.net.URL in Java rappresenta un "Uniform Resource Locator" (URL), 
+che è un riferimento a una risorsa su Internet. Un URL può essere utilizzato per 
+identificare risorse come pagine web, immagini, file, servizi Web, e altro ancora. 
+Ecco una panoramica dettagliata della classe URL:
+
+1. Creazione di un oggetto URL: Puoi creare un oggetto URL fornendo una stringa 
+   che rappresenta l'URL desiderato. Ad esempio:
+   URL url = new URL("https://www.example.com");
+
+   NOTA: L'oggetto URL contiene le informazioni necessarie per specificare la 
+         posizione di una risorsa su Internet e i mezzi per accedervi. 
+         Queste informazioni includono il protocollo utilizzato per accedere alla 
+         risorsa (come HTTP, HTTPS, FTP, ecc.), l'host che ospita la risorsa, 
+         la porta del server (se specificata), il percorso della risorsa nel server, 
+         i parametri di query (se presenti) e il frammento (o anchor) che indica 
+         una parte specifica della risorsa.
+
+2. Accesso alle componenti di un URL: 
+   Una volta creato un oggetto URL, puoi accedere alle diverse componenti dell'URL 
+   utilizzando metodi come getProtocol(), getHost(), getPort(), getPath(), getQuery(), 
+   getRef(), ecc. Ad esempio:
+
+   System.out.println("Protocollo: " + url.getProtocol());
+   System.out.println("Host: " + url.getHost());
+   System.out.println("Porta: " + url.getPort());
+   System.out.println("Percorso: " + url.getPath());
+
+3. Connessione all'URL: 
+   Puoi utilizzare un oggetto URL per aprire una connessione alla risorsa 
+   referenziata dall'URL utilizzando il metodo openConnection(), che restituisce 
+   un oggetto URLConnection. Ad esempio:
+
+   URLConnection connection = url.openConnection();
+
+   NOTA: Un oggetto URLConnection in Java è un'astrazione che rappresenta una 
+         connessione a una risorsa remota identificata da un URL. 
+         È una classe astratta che fornisce i mezzi per aprire una connessione a 
+         una risorsa specificata da un URL e per interagire con essa, consentendo 
+         di leggere e scrivere dati da e verso la risorsa.
+
+         La classe URLConnection fornisce una serie di metodi per configurare e 
+         gestire la connessione, nonché per ottenere informazioni sulla risorsa, 
+         come la lunghezza del contenuto, il tipo di contenuto, i campi di 
+         intestazione HTTP e altro ancora.
+
+         Una volta ottenuta un'istanza di URLConnection, puoi utilizzare i metodi 
+         forniti per leggere e scrivere dati dalla e verso la risorsa, gestire i 
+         campi di intestazione HTTP, impostare timeout di connessione e altro ancora.
+
+         È importante notare che URLConnection è una classe astratta e la sua 
+         implementazione effettiva viene fornita dalle sottoclassi specifiche del 
+         protocollo, come HttpURLConnection per il protocollo HTTP. Pertanto, 
+         è possibile eseguire il cast di un'istanza di URLConnection a una 
+         sottoclasse specifica del protocollo se si desidera utilizzare metodi 
+         specifici del protocollo.
+
+4.  Lettura dei dati dall'URL: 
+    Dopo aver aperto una connessione, puoi utilizzare l'oggetto URLConnection 
+    per leggere i dati dalla risorsa. 
+    Ad esempio, se vuoi leggere il contenuto di una pagina web:
+
+    BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+    String line;
+    while ((line = reader.readLine()) != null) {
+        System.out.println(line);
+    }
+    reader.close();
+
+
+5.  Gestione delle eccezioni: 
+    È importante gestire le eccezioni quando si lavora con URL, poiché possono 
+    verificarsi errori durante il tentativo di connessione o di lettura dei dati. 
+    Le eccezioni più comuni includono MalformedURLException e IOException.

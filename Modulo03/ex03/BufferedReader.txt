@@ -1,0 +1,50 @@
+_______________________________BufferedReader___________________________________
+         
+BufferedReader è una classe in Java che legge i dati da un input stream 
+di caratteri, leggendo caratteri, array di caratteri o righe intere. 
+È particolarmente utile quando si desidera leggere grandi quantità di 
+dati da un file o da un'altra origine di input, poiché effettua il 
+buffering dei dati, migliorando le prestazioni e riducendo il numero di 
+operazioni di I/O effettuate sul dispositivo sottostante.
+
+Nel codice fornito, BufferedReader viene utilizzato per leggere le righe 
+dal file "files_urls.txt". L'uso del costruttore BufferedReader
+(new FileReader("files_urls.txt")) crea un oggetto BufferedReader che 
+legge da un file specifico. Successivamente, il codice itera su ogni 
+riga del file e aggiunge l'URL corrispondente alla coda fileQueue.
+
+
+BufferedReader è una classe che fornisce un'interfaccia per leggere i caratteri 
+da un flusso di input, come ad esempio un file. È una classe di utilità inclusa 
+nel package java.io di Java.
+
+Alcuni punti chiave:
+1. Buffering dei dati: 
+   Una delle caratteristiche principali di BufferedReader è che implementa il 
+   buffering dei dati. 
+   Ciò significa che, anziché leggere i dati da un file o da un'altra sorgente 
+   di input carattere per carattere, BufferedReader legge e memorizza una porzione 
+   di dati in un buffer. 
+   Quando viene richiesto un carattere o una riga successiva, il programma cerca 
+   prima nel buffer, riducendo il numero di operazioni di I/O effettuate sul 
+   dispositivo sottostante. 
+   Questo migliora le prestazioni complessive del programma, soprattutto quando 
+   si tratta di leggere grandi quantità di dati.
+
+2. Lettura di righe o caratteri: 
+   BufferedReader fornisce metodi per leggere i dati riga per riga o carattere 
+   per carattere. 
+   Ad esempio, readLine() legge una riga intera dal flusso di input, 
+   mentre read() legge un singolo carattere.
+
+3. Chiusura automatica delle risorse: 
+   A partire da Java 7, puoi utilizzare la costruzione try-with-resources 
+   con BufferedReader. 
+   Questo significa che puoi dichiarare un oggetto BufferedReader all'interno 
+   di un blocco try e Java si preoccuperà automaticamente di chiudere 
+   il BufferedReader una volta che il blocco try è terminato, 
+   evitando così eventuali risorse non chiuse e semplificando il codice.
+
+4. Compatibilità con altri flussi di input: 
+   BufferedReader può essere utilizzato insieme ad altri flussi di input, 
+   come FileReader, InputStreamReader, ecc., per leggere da diverse fonti di dati.
